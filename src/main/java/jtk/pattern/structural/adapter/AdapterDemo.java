@@ -14,6 +14,7 @@ public class AdapterDemo {
         RectAreaCalculator areaCalculator = new TriangleCalculatorAdapter();
         Rect rectangle = new Rect(2, 3);
         log.info("Rectangle {}", rectangle);
+        log.info("Area of Rectangle is : {}", areaCalculator.getArea(rectangle));
         log.info("Area of Triangle is : {}", areaCalculator.getArea(rectangle));
     }
 }
