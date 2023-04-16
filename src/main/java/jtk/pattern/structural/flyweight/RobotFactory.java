@@ -1,5 +1,8 @@
 package jtk.pattern.structural.flyweight;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,21 +15,23 @@ interface IRobot {
 }
 
 class SmallRobot implements IRobot {
+    private static final Logger log = LoggerFactory.getLogger(SmallRobot.class);
     @Override
     public void Print() {
-        System.out.println(" This is a Small Robot");
+        log.info(" This is a Small Robot");
     }
 }
 
 class LargeRobot implements IRobot {
+    private static final Logger log = LoggerFactory.getLogger(LargeRobot.class);
     @Override
     public void Print() {
-        System.out.println(" I am a Large Robot");
+        log.info(" I am a Large Robot");
     }
 }
 
 public class RobotFactory {
-
+    private static final Logger log = LoggerFactory.getLogger(RobotFactory.class);
     private Map<String, IRobot> shapes = new HashMap<String, IRobot>();
 
     public int TotalObjectsCreated() {
@@ -40,12 +45,12 @@ public class RobotFactory {
         } else {
             switch (RobotCategory) {
                 case "small":
-                    System.out.println("We do not have Small Robot. So we are creating a Small Robot now.");
+                    log.info("We do not have Small Robot. So we are creating a Small Robot now.");
                     robotCategory = new SmallRobot();
                     shapes.put("small", robotCategory);
                     break;
                 case "large":
-                    System.out.println("We do not have Large Robot. So we are creating a Large Robot now .");
+                    log.info("We do not have Large Robot. So we are creating a Large Robot now .");
                     robotCategory = new LargeRobot();
                     shapes.put("large", robotCategory);
                     break;
