@@ -5,15 +5,15 @@ package jtk.pattern.behavioural.state;
  */
 public class TV {
 
-    private RemoteControl state;
+    private RemoteStateController state;
 
-    public RemoteControl getState() {
+    public RemoteStateController getState() {
         return state;
     }
-    public void setState(RemoteControl state) {
+    public void setState(RemoteStateController state) {
         this.state = state;
     }
-    public TV(RemoteControl state)
+    public TV(RemoteStateController state)
     {
         this.state=state;
     }

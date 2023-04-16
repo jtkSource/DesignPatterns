@@ -3,12 +3,12 @@ package jtk.pattern.behavioural.state;
 /**
  * Created by jubin on 2/1/17.
  */
-public abstract class RemoteControl
+public abstract class RemoteStateController
 {
     public abstract void pressSwitch(TV context);
 }
 
-class Off extends RemoteControl
+class Off extends RemoteStateController
 {
 
     @Override
@@ -18,7 +18,7 @@ class Off extends RemoteControl
     }
 }
 
-class On extends RemoteControl
+class On extends RemoteStateController
 {
     @Override
     public void pressSwitch(TV context)

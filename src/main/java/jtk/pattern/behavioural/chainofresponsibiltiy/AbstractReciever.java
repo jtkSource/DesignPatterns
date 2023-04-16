@@ -25,7 +25,7 @@ class FaxErrorHandler extends AbstractReciever
         else
         {
             if (_nextReceiver != null)
-                _nextReceiver.ProcessMessage(msg);
+                return _nextReceiver.ProcessMessage(msg);
         }
         return false;
     }
@@ -48,7 +48,7 @@ class EmailErrorHandler extends AbstractReciever
         else
         {
             if (_nextReceiver != null)
-                _nextReceiver.ProcessMessage(msg);
+                return _nextReceiver.ProcessMessage(msg);
         }
         return false;
     }

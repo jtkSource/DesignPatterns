@@ -29,7 +29,8 @@ public class ChatRoomMediator extends Mediator{
     @Override
     public void send(Employee frd, String msg) {
 
-        employees.stream().filter(t->!t.name.equals(frd.name)).forEach(t->t.notifyEmployee(msg));
+        employees.stream().filter(t->!t.name.equals(frd.name))
+                .forEach(t->t.notifyEmployee(msg));
         if(frd.getType().equals("team")){
             moderator.notifyEmployee(frd.name + " sends message to " + room);
         }
