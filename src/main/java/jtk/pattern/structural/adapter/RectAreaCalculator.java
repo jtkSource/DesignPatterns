@@ -1,5 +1,5 @@
 package jtk.pattern.structural.adapter;
 
-public interface Area {
+public interface RectAreaCalculator {
     double getArea(Rect r);
 }

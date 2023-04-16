@@ -1,6 +1,6 @@
 package jtk.pattern.structural.adapter;
 
-public class TriangleCalculatorAdapter implements Area {
+public class TriangleCalculatorAdapter implements RectAreaCalculator {
     RectCalculator calculator = new RectCalculator();
     Triangle triangle;
 
