@@ -3,7 +3,7 @@ package jtk.pattern.structural.adapter;
 /**
  * Created by jubin on 2/1/17.
  */
-public class RectCalculator {
+public class RectCalculator implements Area {
     Rect rectangle;
     public double getArea(Rect r)
     {

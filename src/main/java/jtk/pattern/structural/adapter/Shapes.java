@@ -8,30 +8,28 @@ class Rect
 {
     public double l;
     public double w;
+
+    public Rect(double l, double w){
+        this.l = l;
+        this.w = w;
+    }
+
+    @Override
+    public String toString() {
+        return "Rect{" +
+                "l=" + l +
+                ", w=" + w +
+                '}';
+    }
 }
 class Triangle
 {
     public double b;//base
     public double h;//height
-    public Triangle(int b, int h)
+    public Triangle(double b, double h)
     {
         this.b = b;
         this.h = h;
-    }
-    static class RectCalculatorAdapter{
-        RectCalculator calculator;
-        Triangle triangle;
-
-        public double getArea(Triangle t)
-        {
-            calculator = new RectCalculator();
-            triangle=t;
-            Rect r = new Rect();
-            //Area of Triangle=0.5*base*height
-            r.l = triangle.b;
-            r.w = 0.5*triangle.h;
-            return calculator.getArea(r);
-        }
     }
 
 }

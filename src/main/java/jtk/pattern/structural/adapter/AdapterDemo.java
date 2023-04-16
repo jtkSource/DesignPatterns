@@ -1,14 +1,19 @@
 package jtk.pattern.structural.adapter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by jubin on 2/1/17.
  */
 public class AdapterDemo {
+    private static final Logger log = LoggerFactory.getLogger(AdapterDemo.class);
+    
     public static void main(String[] args) {
-        System.out.println("***Adapter Pattern Demo***");
-        Triangle.RectCalculatorAdapter cal=new Triangle.RectCalculatorAdapter();
-        Triangle t = new Triangle(20,10);
-        System.out.println("\nAdapter Pattern Example\n");
-        System.out.println("Area of Triangle is :" + cal.getArea(t));
+        log.info("***Adapter Pattern Demo***");
+        TriangleCalculatorAdapter cal=new TriangleCalculatorAdapter();
+        Rect rectangle = new Rect(2, 3);
+        log.info("Rectangle {}", rectangle);
+        log.info("Area of Triangle is : {}", new TriangleCalculatorAdapter().getArea(rectangle));
     }
 }
