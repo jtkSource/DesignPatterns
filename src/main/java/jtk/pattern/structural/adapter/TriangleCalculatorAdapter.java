@@ -8,8 +8,6 @@ public class TriangleCalculatorAdapter implements Area {
     public double getArea(Rect r) {
         triangle = new Triangle(r.l, r.w);
         //Area of Triangle=0.5*base*height
-        r.l = triangle.b;
-        r.w = 0.5*triangle.h;
-        return calculator.getArea(r);
+        return calculator.getArea(new Rect(triangle.b, 0.5*triangle.h));
     }
 }
