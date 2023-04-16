@@ -11,9 +11,10 @@ public class AdapterDemo {
     
     public static void main(String[] args) {
         log.info("***Adapter Pattern Demo***");
-        TriangleCalculatorAdapter cal=new TriangleCalculatorAdapter();
+        TriangleCalculatorAdapter calculatorAdapter=new TriangleCalculatorAdapter();
         Rect rectangle = new Rect(2, 3);
+
         log.info("Rectangle {}", rectangle);
-        log.info("Area of Triangle is : {}", new TriangleCalculatorAdapter().getArea(rectangle));
+        log.info("Area of Triangle is : {}", calculatorAdapter.getArea(rectangle));
     }
 }
