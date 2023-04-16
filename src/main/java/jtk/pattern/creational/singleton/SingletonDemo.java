@@ -12,9 +12,9 @@ public class SingletonDemo {
     public static void main(String[] args) {
         log.info("***Singleton Pattern Demo***\n");
         log.info("Trying to make a captain for our team");
-        MakeACaptain c1 = MakeACaptain.getCaptain();
+        Singleton c1 = Singleton.getInstance();
         log.info("Trying to make another captain for our team");
-        MakeACaptain c2 = MakeACaptain.getCaptain();
+        Singleton c2 = Singleton.getInstance();
         if (c1 == c2)
         {
             log.info("c1 and c2 are same instance");
@@ -23,15 +23,17 @@ public class SingletonDemo {
 
 }
 
-class MakeACaptain
-{
-    private static final MakeACaptain _caption = new MakeACaptain();
-    //We make the constructor private to prevent the use of "new"
-    private MakeACaptain() { }
-
-    public static MakeACaptain getCaptain()
-    {
-        return _caption;
+/**
+ * This is a widely used approach for a Singleton class as it doesn’t require synchronization, is thread safe,
+ * enforces lazy initialization and has comparatively less boilerplate.
+ */
+class Singleton  {
+    private Singleton() {}
+    private static class SingletonHolder {
+        public static final Singleton instance = new Singleton();
     }
-
+    public static Singleton getInstance() {
+        return SingletonHolder.instance;
+    }
 }
+

@@ -77,7 +77,7 @@ class Product
     private LinkedList<String> parts;
     public Product()
     {
-        parts = new LinkedList<String>();
+        parts = new LinkedList<>();
     }
 
     public void Add(String part)
@@ -96,5 +96,3 @@ class Product
     }
 }
 
-public class VehicleBuilder {
-}
