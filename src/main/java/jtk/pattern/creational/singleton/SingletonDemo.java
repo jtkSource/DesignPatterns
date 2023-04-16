@@ -20,7 +20,6 @@ public class SingletonDemo {
             log.info("c1 and c2 are same instance");
         }
     }
-
 }
 
 /**
