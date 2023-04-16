@@ -1,5 +1,8 @@
 package jtk.pattern.structural.composite;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,7 @@ class Teacher implements ITeacher
         this.deptName = deptName;
         controls = new ArrayList<ITeacher>();
     }
-    public void Add(Teacher teacher)
+    public void add(Teacher teacher)
     {
         controls.add(teacher);
     }
@@ -43,8 +46,9 @@ class Teacher implements ITeacher
 }
 
 public class CompositeEx {
+    private static final Logger log = LoggerFactory.getLogger(CompositeEx.class);
     public static void main(String[] args) {
-        Teacher Principal = new Teacher("Dr.S.Som","Principal");
+        Teacher principal = new Teacher("Dr.S.Som","principal");
 
         Teacher hodMaths = new Teacher("Mrs.S.Das","Hod-Math");
 
@@ -57,58 +61,58 @@ public class CompositeEx {
         Teacher cseTeacher2 = new Teacher("CSE Teacher-2","CSETeacher");
         Teacher cseTeacher3 = new Teacher("CSE Teacher-3","CSETeacher");
 
-        //Principal is on top of college
+        //principal is on top of college
                 /*HOD -Maths and Comp. Sc. directly reports to him*/
-        Principal.Add(hodMaths);
-        Principal.Add(hodCompSc);
+        principal.add(hodMaths);
+        principal.add(hodCompSc);
 
                 /*Teachers of Mathematics directly reports to HOD-Maths*/
-        hodMaths.Add(mathTeacher1);
-        hodMaths.Add(mathTeacher2);
+        hodMaths.add(mathTeacher1);
+        hodMaths.add(mathTeacher2);
 
                 /*Teachers of Computer Sc. directly reports to HOD-Comp.Sc.*/
-        hodCompSc.Add(cseTeacher1);
-        hodCompSc.Add(cseTeacher2);
-        hodCompSc.Add(cseTeacher3);
+        hodCompSc.add(cseTeacher1);
+        hodCompSc.add(cseTeacher2);
+        hodCompSc.add(cseTeacher3);
 
                 /*Leaf nodes. There is no department under Mathematics*/
-        mathTeacher1.Add(null);
-        mathTeacher2.Add(null);
+        mathTeacher1.add(null);
+        mathTeacher2.add(null);
 
                 /*Leaf nodes. There is no department under CSE.*/
-        cseTeacher1.Add(null);
-        cseTeacher2.Add(null);
-        cseTeacher3.Add(null);
+        cseTeacher1.add(null);
+        cseTeacher2.add(null);
+        cseTeacher3.add(null);
 
         //Printing the details
-        System.out.println("***COMPOSITE PATTERN DEMO ***");
-        System.out.println("\nThe college has following structure\n");
-        System.out.println(Principal.getDetails());
-        List<ITeacher> hods=Principal.getControllingDepts();
+        log.info("***COMPOSITE PATTERN DEMO ***");
+        log.info("\nThe college has following structure\n");
+        log.info(principal.getDetails());
+        List<ITeacher> hods=principal.getControllingDepts();
         for(int i=0;i<hods.size();i++)
         {
-            System.out.println("\t"+hods.get(i).getDetails());
+            log.info("\t"+hods.get(i).getDetails());
         }
 
         List<ITeacher> mathTeachers=hodMaths.getControllingDepts();
         for(int i=0;i<mathTeachers.size();i++)
         {
-            System.out.println("\t\t"+mathTeachers.get(i).getDetails());
+            log.info("\t\t"+mathTeachers.get(i).getDetails());
         }
 
         List<ITeacher> cseTeachers=hodCompSc.getControllingDepts();
         for(int i=0;i<cseTeachers.size();i++)
         {
-            System.out.println("\t\t"+cseTeachers.get(i).getDetails());
+            log.info("\t\t"+cseTeachers.get(i).getDetails());
         }
 
         //One computer teacher is leaving
         hodCompSc.Remove(cseTeacher2);
-        System.out.println("\n After CSE Teacher-2 leaving the organization- CSE department has following employees:");
+        log.info("\n After CSE Teacher-2 leaving the organization- CSE department has following employees:");
         cseTeachers = hodCompSc.getControllingDepts();
         for(int i=0;i<cseTeachers.size();i++)
         {
-            System.out.println("\t\t"+cseTeachers.get(i).getDetails());
+            log.info("\t\t"+cseTeachers.get(i).getDetails());
         }
 
     }
