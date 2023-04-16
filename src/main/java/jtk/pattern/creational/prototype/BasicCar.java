@@ -21,10 +21,9 @@ public abstract class BasicCar implements Cloneable{
 
     public static int setPrice()
     {
-        int price = 0;
         Random r = new Random();
         int p = r.nextInt(100000);
-        price = p;
+        int price = p;
         return price;
     }
 
@@ -43,7 +42,7 @@ class Nano extends BasicCar
     @Override
     public BasicCar clone() throws CloneNotSupportedException
     {
-        return (Nano)super.clone();
+        return super.clone();
 
     }
 }
@@ -57,7 +56,7 @@ class Ford extends BasicCar
     @Override
     public BasicCar clone() throws CloneNotSupportedException
     {
-        return (Ford)super.clone();
+        return super.clone();
     }
 
 }
