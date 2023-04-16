@@ -1,5 +1,8 @@
 package jtk.pattern.structural.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by jubin on 2/1/17.
  */
@@ -22,6 +25,7 @@ class ConcreteSubject extends Subject
 
 class Proxy extends Subject
 {
+    private static final Logger log = LoggerFactory.getLogger(Proxy.class);
     ConcreteSubject cs;
     @Override
     public void doSomeWork()
@@ -38,10 +42,14 @@ class Proxy extends Subject
 
 public class ProxyPatternEx
 {
+    private static final Logger log = LoggerFactory.getLogger(ProxyPatternEx.class);
     public static void main(String[] args)
     {
-        System.out.println("***Proxy Pattern Demo***\n");
+
+        log.info("***Proxy Pattern Demo***\n");
         Proxy px = new Proxy();
         px.doSomeWork();
+
+
     }
 }
